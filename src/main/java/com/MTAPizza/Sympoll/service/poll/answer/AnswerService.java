@@ -10,4 +10,8 @@ public class AnswerService {
     public AnswerService(AnswerRepository answerRepository) {
         this.answerRepository = answerRepository;
     }
+
+    public void addVotes(){
+        
+    }
 }

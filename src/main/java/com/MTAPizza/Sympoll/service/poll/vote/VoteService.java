@@ -10,4 +10,6 @@ public class VoteService {
     public VoteService(VoteRepository voteRepository) {
         this.voteRepository = voteRepository;
     }
+
+
 }
