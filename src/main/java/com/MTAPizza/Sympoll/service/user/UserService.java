@@ -19,7 +19,7 @@ public class UserService {
     }
 
     public UserEntity getUserByID(int id){
-        return userRepository.getReferenceById(id);
+        return userRepository.getUserEntityByUserID(id);
     }
 
     public long count(){

@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "votes")
@@ -24,12 +25,12 @@ public class VoteEntity implements Serializable {
     private int answerID;
 
     @Column(name = "vote_datetime")
-    private long voteDateTime;
+    private Timestamp voteDateTime;
 
     public VoteEntity() {
     }
 
-    public VoteEntity(int voteID, int userID, int pollID, int answerID, long voteDateTime) {
+    public VoteEntity(int voteID, int userID, int pollID, int answerID, Timestamp voteDateTime) {
         this.voteID = voteID;
         this.userID = userID;
         this.pollID = pollID;
@@ -69,11 +70,11 @@ public class VoteEntity implements Serializable {
         this.answerID = answerID;
     }
 
-    public long getVoteDateTime() {
+    public Timestamp getVoteDateTime() {
         return voteDateTime;
     }
 
-    public void setVoteDateTime(long voteDateTime) {
+    public void setVoteDateTime(Timestamp voteDateTime) {
         this.voteDateTime = voteDateTime;
     }
 }

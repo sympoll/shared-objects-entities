@@ -38,7 +38,7 @@ public class PollService {
     }
 
     public PollEntity getPollByID(int id){
-        return pollRepository.getReferenceById(id);
+        return pollRepository.getPollEntityByPollID(id);
     }
 
     public long count(){
@@ -46,11 +46,11 @@ public class PollService {
     }
 
     public List<PollEntity> getPollsByCreatorID(int creatorID){
-        return pollRepository.getPollEntityByCreatorID(creatorID);
+        return pollRepository.getPollEntitiesByCreatorID(creatorID);
     }
 
     public List<PollEntity> getPollsByGroupID(int groupID){
-        return pollRepository.getPollEntityByGroupID(groupID);
+        return pollRepository.getPollEntitiesByGroupID(groupID);
     }
 
     public PollEntity addPoll(PollEntity poll){

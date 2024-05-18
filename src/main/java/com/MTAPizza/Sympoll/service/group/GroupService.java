@@ -19,7 +19,7 @@ public class GroupService {
     }
 
     public GroupEntity getGroupByID(int id){
-        return groupRepository.getReferenceById(id);
+        return groupRepository.getGroupEntityByGroupID(id);
     }
 
     public long count(){

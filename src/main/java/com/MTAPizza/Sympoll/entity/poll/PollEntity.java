@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 
 @Entity
@@ -25,16 +26,16 @@ public class PollEntity implements Serializable {
     @Column(name = "num_answers_allowed", nullable = false)
     private int numAnswersAllowed;
     @Column(name = "time_created")
-    private long timeCreated;
+    private Timestamp timeCreated;
     @Column(name = "time_updated")
-    private long timeUpdated;
+    private Timestamp timeUpdated;
     @Column(name = "time_ends")
-    private long timeEnds;
+    private Timestamp timeEnds;
 
     public PollEntity() {
     }
 
-    public PollEntity(int pollID, String title, String description, int creatorID, int groupID, int numAnswersAllowed, long timeCreated, long timeUpdated, long timeEnds) {
+    public PollEntity(int pollID, String title, String description, int creatorID, int groupID, int numAnswersAllowed, Timestamp timeCreated, Timestamp timeUpdated, Timestamp timeEnds) {
         this.pollID = pollID;
         this.title = title;
         this.description = description;
@@ -44,6 +45,21 @@ public class PollEntity implements Serializable {
         this.timeCreated = timeCreated;
         this.timeUpdated = timeUpdated;
         this.timeEnds = timeEnds;
+    }
+
+    @Override
+    public String toString() {
+        return "PollEntity{" +
+                "pollID=" + pollID +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", creatorID=" + creatorID +
+                ", groupID=" + groupID +
+                ", numAnswersAllowed=" + numAnswersAllowed +
+                ", timeCreated=" + timeCreated +
+                ", timeUpdated=" + timeUpdated +
+                ", timeEnds=" + timeEnds +
+                '}';
     }
 
     public int getPollID() {
@@ -94,27 +110,27 @@ public class PollEntity implements Serializable {
         this.numAnswersAllowed = numAnswersAllowed;
     }
 
-    public long getTimeCreated() {
+    public Timestamp getTimeCreated() {
         return timeCreated;
     }
 
-    public void setTimeCreated(long timeCreated) {
+    public void setTimeCreated(Timestamp timeCreated) {
         this.timeCreated = timeCreated;
     }
 
-    public long getTimeUpdated() {
+    public Timestamp getTimeUpdated() {
         return timeUpdated;
     }
 
-    public void setTimeUpdated(long timeUpdated) {
+    public void setTimeUpdated(Timestamp timeUpdated) {
         this.timeUpdated = timeUpdated;
     }
 
-    public long getTimeEnds() {
+    public Timestamp getTimeEnds() {
         return timeEnds;
     }
 
-    public void setTimeEnds(long timeEnds) {
+    public void setTimeEnds(Timestamp timeEnds) {
         this.timeEnds = timeEnds;
     }
 }

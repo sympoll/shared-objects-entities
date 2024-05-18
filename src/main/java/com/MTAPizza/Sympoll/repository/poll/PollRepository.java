@@ -8,7 +8,9 @@ import java.util.List;
 
 @Repository
 public interface PollRepository extends JpaRepository<PollEntity, Integer> {
-    List<PollEntity> getPollEntityByCreatorID(int creatorID);
+    List<PollEntity> getPollEntitiesByCreatorID(int creatorID);
 
-    List<PollEntity> getPollEntityByGroupID(int groupID);
+    List<PollEntity> getPollEntitiesByGroupID(int groupID);
+
+    PollEntity getPollEntityByPollID(int pollID);
 }

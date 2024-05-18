@@ -25,6 +25,14 @@ public class GroupEntity implements Serializable {
         this.groupName = groupName;
     }
 
+    @Override
+    public String toString() {
+        return "GroupEntity{" +
+                "groupID=" + groupID +
+                ", groupName='" + groupName + '\'' +
+                '}';
+    }
+
     public int getGroupID() {
         return groupID;
     }

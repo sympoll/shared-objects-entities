@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "users")
@@ -20,17 +21,32 @@ public class UserEntity implements Serializable {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "password_hash")
+    private String password;
+
     @Column(name = "created_at")
-    private long createdAt;
+    private Timestamp createdAt;
 
     public UserEntity() {
     }
 
-    public UserEntity(int user_id, String username, String email, long created_at) {
-        this.userID = user_id;
+    public UserEntity(int userID, String username, String email, String password, Timestamp createdAt) {
+        this.userID = userID;
         this.username = username;
         this.email = email;
-        this.createdAt = created_at;
+        this.password = password;
+        this.createdAt = createdAt;
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "userID=" + userID +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", createdAt=" + createdAt +
+                '}';
     }
 
     public int getUserID() {
@@ -57,11 +73,11 @@ public class UserEntity implements Serializable {
         this.email = email;
     }
 
-    public long getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(long created_at) {
+    public void setCreatedAt(Timestamp created_at) {
         this.createdAt = created_at;
     }
 }
