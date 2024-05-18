@@ -19,11 +19,16 @@ public class GroupService {
         return groupRepository.findAll();
     }
 
-    public GroupEntity getPollById(int id){
+    public GroupEntity getGroupByID(int id){
         return groupRepository.getReferenceById(id);
     }
 
     public long count(){
         return groupRepository.count();
+    }
+
+    public GroupEntity addGroup(GroupEntity group){
+        group.setGroupID((int)count() + 1);
+        return groupRepository.save(group);
     }
 }

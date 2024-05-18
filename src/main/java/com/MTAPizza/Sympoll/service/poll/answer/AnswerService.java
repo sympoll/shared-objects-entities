@@ -19,11 +19,16 @@ public class AnswerService {
         return answerRepository.findAll();
     }
 
-    public AnswerEntity getPollById(int id){
+    public AnswerEntity getAnswerByID(int id){
         return answerRepository.getReferenceById(id);
     }
 
     public long count(){
         return answerRepository.count();
+    }
+
+    public AnswerEntity addAnswer(AnswerEntity answer){
+        answer.setAnswerID((int)count() + 1);
+        return answerRepository.save(answer);
     }
 }

@@ -19,11 +19,16 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public UserEntity getUserById(int id){
+    public UserEntity getUserByID(int id){
         return userRepository.getReferenceById(id);
     }
 
     public long count(){
         return userRepository.count();
+    }
+
+    public UserEntity addUser(UserEntity user){
+        user.setUserID((int)count() + 1);
+        return userRepository.save(user);
     }
 }

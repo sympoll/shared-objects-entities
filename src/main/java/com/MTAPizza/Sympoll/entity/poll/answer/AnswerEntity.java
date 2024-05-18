@@ -52,4 +52,24 @@ public class AnswerEntity implements Serializable {
     public int getNumOfVotes() {
         return numOfVotes;
     }
+
+    public void setAnswerID(int answerID) {
+        this.answerID = answerID;
+    }
+
+    public void setPollID(int pollID) {
+        this.pollID = pollID;
+    }
+
+    public void setOrdinal(int ordinal) {
+        this.ordinal = ordinal;
+    }
+
+    public void setAnswerText(String answerText) {
+        this.answerText = answerText;
+    }
+
+    public void setNumOfVotes(int numOfVotes) {
+        this.numOfVotes = numOfVotes;
+    }
 }
