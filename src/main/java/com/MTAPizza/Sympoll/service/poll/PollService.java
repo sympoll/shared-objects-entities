@@ -20,6 +20,9 @@ public class PollService {
 
     private VoteService voteService;
 
+    /**
+     * Injecting VoteService and AnswerService, so we can call them in this service.
+     */
     @Autowired
     private void setServices(VoteService voteService, AnswerService answerService){
         this.answerService = answerService;

@@ -17,6 +17,9 @@ public class VoteService {
 
     private AnswerService answerService;
 
+    /**
+     * Injecting  AnswerService, so we can call it in this service.
+     */
     @Autowired
     public void setAnswerService(AnswerService answerService){
         this.answerService = answerService;
