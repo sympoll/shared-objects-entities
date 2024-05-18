@@ -31,4 +31,8 @@ public class UserService {
         user.setUserID((int)count() + 1);
         return userRepository.save(user);
     }
+
+    public void deleteUser(UserEntity user){
+        userRepository.delete(user);
+    }
 }

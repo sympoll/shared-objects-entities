@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface VoteRepository extends JpaRepository<VoteEntity, Integer> {
     List<VoteEntity> getVoteEntitiesByPollID(int pollID);
+
+    void deleteAllByPollID(int pollID);
 }

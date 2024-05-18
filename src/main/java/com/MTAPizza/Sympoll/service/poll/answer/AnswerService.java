@@ -31,4 +31,19 @@ public class AnswerService {
         answer.setAnswerID((int)count() + 1);
         return answerRepository.save(answer);
     }
+
+    public AnswerEntity updateAnswerVotes(int id, int numOfVotes){
+        AnswerEntity answerToUpdate = getAnswerByID(id);
+
+        if(answerToUpdate == null){
+            return  null;
+        }
+
+        answerToUpdate.setNumOfVotes(numOfVotes);
+        return answerRepository.save(answerToUpdate);
+    }
+
+    public void deleteAllAnswersByPollID(int pollID){
+        answerRepository.deleteAllByPollID(pollID);
+    }
 }

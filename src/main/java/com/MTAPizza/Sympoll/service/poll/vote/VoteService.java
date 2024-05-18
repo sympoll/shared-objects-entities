@@ -5,6 +5,8 @@ import com.MTAPizza.Sympoll.entity.poll.answer.AnswerEntity;
 import com.MTAPizza.Sympoll.entity.poll.vote.VoteEntity;
 import com.MTAPizza.Sympoll.entity.user.UserEntity;
 import com.MTAPizza.Sympoll.repository.poll.vote.VoteRepository;
+import com.MTAPizza.Sympoll.service.poll.answer.AnswerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +14,13 @@ import java.util.List;
 @Service
 public class VoteService {
     private final VoteRepository voteRepository;
+
+    private AnswerService answerService;
+
+    @Autowired
+    public void setAnswerService(AnswerService answerService){
+        this.answerService = answerService;
+    }
 
     public VoteService(VoteRepository voteRepository) {
         this.voteRepository = voteRepository;
@@ -34,7 +43,23 @@ public class VoteService {
     }
 
     public VoteEntity addVote(VoteEntity vote){
+        int answerID = vote.getAnswerID();
+        int numOfVotes = answerService.getAnswerByID(answerID).getNumOfVotes();
+        answerService.updateAnswerVotes(answerID, numOfVotes + 1);
+
         vote.setVoteID((int)count() + 1);
         return voteRepository.save(vote);
+    }
+
+    public void deleteVote(VoteEntity vote){
+        int answerID = vote.getAnswerID();
+        int numOfVotes = answerService.getAnswerByID(answerID).getNumOfVotes();
+        answerService.updateAnswerVotes(answerID, numOfVotes - 1);
+
+        voteRepository.delete(vote);
+    }
+
+    public void deleteAllVotesByPollID(int pollID){
+        voteRepository.deleteAllByPollID(pollID);
     }
 }
