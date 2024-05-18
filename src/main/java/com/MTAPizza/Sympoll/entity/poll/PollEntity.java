@@ -19,7 +19,7 @@ public class PollEntity implements Serializable {
     @Column(name = "description")
     private String description;
     @Column(name = "creator_id", nullable = false)
-    private String creatorID;
+    private int creatorID;
     @Column(name = "group_id", nullable = false)
     private int groupID;
     @Column(name = "num_answers_allowed", nullable = false)
@@ -34,7 +34,7 @@ public class PollEntity implements Serializable {
     public PollEntity() {
     }
 
-    public PollEntity(int pollID, String title, String description, String creatorID, int groupID, int numAnswersAllowed, long timeCreated, long timeUpdated, long timeEnds) {
+    public PollEntity(int pollID, String title, String description, int creatorID, int groupID, int numAnswersAllowed, long timeCreated, long timeUpdated, long timeEnds) {
         this.pollID = pollID;
         this.title = title;
         this.description = description;
@@ -70,11 +70,11 @@ public class PollEntity implements Serializable {
         this.description = description;
     }
 
-    public String getCreatorID() {
+    public int getCreatorID() {
         return creatorID;
     }
 
-    public void setCreatorID(String creatorID) {
+    public void setCreatorID(int creatorID) {
         this.creatorID = creatorID;
     }
 

@@ -62,6 +62,5 @@ public class PollService {
         pollRepository.delete(poll);
         answerService.deleteAllAnswersByPollID(poll.getPollID());
         voteService.deleteAllVotesByPollID(poll.getPollID());
-
     }
 }
