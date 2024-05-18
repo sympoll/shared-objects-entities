@@ -1,7 +1,10 @@
 package com.MTAPizza.Sympoll.service.poll.answer;
 
+import com.MTAPizza.Sympoll.entity.poll.answer.AnswerEntity;
 import com.MTAPizza.Sympoll.repository.poll.answer.AnswerRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AnswerService {
@@ -11,7 +14,35 @@ public class AnswerService {
         this.answerRepository = answerRepository;
     }
 
-    public void addVotes(){
-        
+    public List<AnswerEntity> list(){
+        return answerRepository.findAll();
+    }
+
+    public AnswerEntity getAnswerByID(int id){
+        return answerRepository.getReferenceById(id);
+    }
+
+    public long count(){
+        return answerRepository.count();
+    }
+
+    public AnswerEntity addAnswer(AnswerEntity answer){
+        answer.setAnswerID((int)count() + 1);
+        return answerRepository.save(answer);
+    }
+
+    public AnswerEntity updateAnswerVotes(int id, int numOfVotes){
+        AnswerEntity answerToUpdate = getAnswerByID(id);
+
+        if(answerToUpdate == null){
+            return  null;
+        }
+
+        answerToUpdate.setNumOfVotes(numOfVotes);
+        return answerRepository.save(answerToUpdate);
+    }
+
+    public void deleteAllAnswersByPollID(int pollID){
+        answerRepository.deleteAllByPollID(pollID);
     }
 }

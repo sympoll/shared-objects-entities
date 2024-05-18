@@ -13,4 +13,23 @@ public class GroupService {
     public GroupService(GroupRepository groupRepository) {
         this.groupRepository = groupRepository;
     }
+
+    public List<GroupEntity> list(){
+        return groupRepository.findAll();
+    }
+
+    public GroupEntity getGroupByID(int id){
+        return groupRepository.getReferenceById(id);
+    }
+
+    public long count(){
+        return groupRepository.count();
+    }
+
+    public GroupEntity addGroup(GroupEntity group){
+        group.setGroupID((int)count() + 1);
+        return groupRepository.save(group);
+    }
+
+    public void deleteGroup(int id) {groupRepository.deleteById(id);}
 }
