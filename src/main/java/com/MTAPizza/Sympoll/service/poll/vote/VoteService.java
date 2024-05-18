@@ -1,9 +1,6 @@
 package com.MTAPizza.Sympoll.service.poll.vote;
 
-import com.MTAPizza.Sympoll.entity.poll.PollEntity;
-import com.MTAPizza.Sympoll.entity.poll.answer.AnswerEntity;
 import com.MTAPizza.Sympoll.entity.poll.vote.VoteEntity;
-import com.MTAPizza.Sympoll.entity.user.UserEntity;
 import com.MTAPizza.Sympoll.repository.poll.vote.VoteRepository;
 import com.MTAPizza.Sympoll.service.poll.answer.AnswerService;
 import org.springframework.beans.factory.annotation.Autowired;

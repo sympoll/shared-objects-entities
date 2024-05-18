@@ -1,6 +1,5 @@
 package com.MTAPizza.Sympoll.service.poll.answer;
 
-import com.MTAPizza.Sympoll.entity.poll.PollEntity;
 import com.MTAPizza.Sympoll.entity.poll.answer.AnswerEntity;
 import com.MTAPizza.Sympoll.repository.poll.answer.AnswerRepository;
 import org.springframework.stereotype.Service;

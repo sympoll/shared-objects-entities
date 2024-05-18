@@ -1,7 +1,6 @@
 package com.MTAPizza.Sympoll.service.group;
 
 import com.MTAPizza.Sympoll.entity.group.GroupEntity;
-import com.MTAPizza.Sympoll.entity.poll.answer.AnswerEntity;
 import com.MTAPizza.Sympoll.repository.group.GroupRepository;
 import org.springframework.stereotype.Service;
 
@@ -31,4 +30,6 @@ public class GroupService {
         group.setGroupID((int)count() + 1);
         return groupRepository.save(group);
     }
+
+    public void deleteGroup(int id) {groupRepository.deleteById(id);}
 }

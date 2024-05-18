@@ -60,7 +60,6 @@ public class PollService {
 
     public void deletePoll(PollEntity poll){
         pollRepository.delete(poll);
-
         answerService.deleteAllAnswersByPollID(poll.getPollID());
         voteService.deleteAllVotesByPollID(poll.getPollID());
 
