@@ -1,5 +1,5 @@
 # Shared  objects
-Shared objects is a library of all the project's comon objects (i.e polls, users, votes etc)
+Shared objects is a library of all the project's common objects (i.e polls, users, votes etc)
 
 ## Entities
 This library is responsible for the ORM of the shared objects. 
